@@ -1,0 +1,1 @@
+export { fetchManufacturers, fetchAnalogues } from './favoritApi';
