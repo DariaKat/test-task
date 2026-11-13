@@ -1,6 +1,12 @@
 import axios from 'axios';
 
-const API_BASE = 'http://api.favorit-parts.ru/hs/hsprice/';
+const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// Выбираем базовый URL
+const API_BASE = isLocal
+  ? 'http://api.favorit-parts.ru/hs/hsprice/'
+  : 'https://corsproxy.io/?http://api.favorit-parts.ru/hs/hsprice/'; // Используем прокси для продакшена
+
 const TEST_KEY = 'A1234567-ABCD-1234-ABCD-ABC123456789';
 
 const apiClient = axios.create({
