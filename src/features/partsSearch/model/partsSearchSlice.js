@@ -4,8 +4,7 @@ import { fetchManufacturers, fetchAnalogues } from '@shared/api';
 export const searchManufacturers = createAsyncThunk(
   'partsSearch/searchManufacturers',
   async (article) => {
-    const goods = await fetchManufacturers(article);
-    return [...new Set(goods.map((item) => item.brand))];
+    return await fetchManufacturers(article);
   }
 );
 
